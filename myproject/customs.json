@@ -1,0 +1,13 @@
+{
+    "elements": {
+        "wicket:panel": {}
+    },
+    "attributes": {
+        "integrity": {
+            "context": "link"
+        },
+        "wicket:id": {
+            "context": "form"
+        }
+    }
+}
