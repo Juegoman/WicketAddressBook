@@ -1,5 +1,18 @@
 <wicket:panel>
 <div class="alert alert-info" wicket:id="alertInfo"></div>
-
+<div class="row">
+    <div wicket:id="contactList" class="col-md-6 panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title" wicket:id="fullName"></h3>
+        </div>
+        <div class="panel-body">
+            <address>
+                <span wicket:id="address"></span><br>
+                Phone: <span wicket:id="phone"></span><br>
+                Email: <span wicket:id="email"></span>
+            </address>
+        </div>
+    </div>
+</div>
 </wicket:panel>
 
