@@ -11,7 +11,20 @@
                 Phone: <span wicket:id="phone"></span><br>
                 Email: <span wicket:id="email"></span>
             </address>
+            <form wicket:id="updateContactForm">
+                <h2>Update <span wicket:id="updateContactName"></span>'s information:</h2>
+                <div class="input-group">
+                    <input wicket:id="firstName" placeholder="First Name" required type="text" class="form-control">
+                    <span class="input-group-glue"></span>
+                    <input wicket:id="lastName" placeholder="Last Name" required type="text" class="form-control">
+                </div>
+                <input wicket:id="address" placeholder="Address" type="text" class="form-control">
+                <input wicket:id="email" placeholder="Email" type="text" class="form-control">
+                <input wicket:id="phone" placeholder="Phone" type="text" class="form-control">
+                <button class="btn btn-primary" type="submit">Update</button>
+            </form>
         </div>
+        
     </div>
 </div>
 </wicket:panel>
