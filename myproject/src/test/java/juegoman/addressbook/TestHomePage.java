@@ -1,4 +1,4 @@
-package com.mycompany;
+package juegoman.addressbook;
 
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Before;

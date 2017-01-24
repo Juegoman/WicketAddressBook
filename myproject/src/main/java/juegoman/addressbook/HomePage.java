@@ -1,4 +1,4 @@
-package com.mycompany;
+package juegoman.addressbook;
 
 import org.apache.wicket.Session;
 import org.apache.wicket.request.mapper.parameter.PageParameters;

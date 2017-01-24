@@ -1,4 +1,4 @@
-package com.mycompany;
+package juegoman.addressbook;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

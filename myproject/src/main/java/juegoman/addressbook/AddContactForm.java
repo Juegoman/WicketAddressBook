@@ -1,4 +1,4 @@
-package com.mycompany;
+package juegoman.addressbook;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
