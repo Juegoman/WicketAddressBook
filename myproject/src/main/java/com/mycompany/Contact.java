@@ -20,6 +20,11 @@ public class Contact implements Serializable {
         this.phone = "";
     }
     
+    @Override
+    public String toString() {
+        return getFullName(); 
+    }
+    
     public String getFullName() {
         return firstName + " " + lastName;
     }

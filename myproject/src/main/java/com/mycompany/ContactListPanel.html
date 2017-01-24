@@ -1,7 +1,5 @@
 <wicket:panel>
-<div class="alert alert-info" wicket:id="alertInfo"></div>
-<div class="row">
-    <div wicket:id="contactList" class="col-md-6 panel panel-default">
+    <div wicket:id="contactList" class="col-sm-6 panel panel-default contact-panel">
         <div class="panel-heading">
             <h3 class="panel-title" wicket:id="fullName"></h3>
         </div>
@@ -11,8 +9,29 @@
                 Phone: <span wicket:id="phone"></span><br>
                 Email: <span wicket:id="email"></span>
             </address>
-            <form wicket:id="updateContactForm">
-                <h2>Update <span wicket:id="updateContactName"></span>'s information:</h2>
+            
+            <button wicket:id="editButton" type="button" class="btn btn-default" aria-label="Edit">
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            </button>
+            <button wicket:id="deleteButton" type="button" class="btn btn-danger" aria-label="Delete">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </button>
+            
+            <div wicket:id="deleteDialog" class="panel panel-danger delete-confirm-panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Are you sure?</h3>
+                </div>
+                <div class="panel-body">
+                    <button wicket:id="cancelDelete" type="button" class="btn btn-default" aria-label="Edit">
+                        <span>Cancel</span>
+                    </button>
+                    <button wicket:id="confirmDelete" type="button" class="btn btn-danger" aria-label="Delete">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+            
+            <form wicket:id="updateContactForm" class="update-contact-form">
                 <div class="input-group">
                     <input wicket:id="firstName" placeholder="First Name" required type="text" class="form-control">
                     <span class="input-group-glue"></span>
@@ -21,11 +40,10 @@
                 <input wicket:id="address" placeholder="Address" type="text" class="form-control">
                 <input wicket:id="email" placeholder="Email" type="text" class="form-control">
                 <input wicket:id="phone" placeholder="Phone" type="text" class="form-control">
-                <button class="btn btn-primary" type="submit">Update</button>
+                <button class="btn btn-warning" type="submit">Update</button>
             </form>
         </div>
         
     </div>
-</div>
 </wicket:panel>
 

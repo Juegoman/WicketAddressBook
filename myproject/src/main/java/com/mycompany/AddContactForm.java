@@ -70,5 +70,8 @@ public class AddContactForm extends Form {
         addressField.setDefaultModel(Model.of(""));
         emailField.setDefaultModel(Model.of(""));
         phoneField.setDefaultModel(Model.of(""));
+        
+        ListPage page = (ListPage) getPage();
+        page.rebuildContactList();
     }
 }

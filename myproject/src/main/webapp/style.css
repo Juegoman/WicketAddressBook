@@ -30,3 +30,17 @@
     max-width: 400px;
     margin: 0 auto;
 }
+
+.contact-panel {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.delete-confirm-panel {
+    width: 50%;
+    margin: 15px auto;
+}
+
+.update-contact-form {
+    margin-top: 15px;
+}
