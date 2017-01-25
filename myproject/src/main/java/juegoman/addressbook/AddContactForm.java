@@ -21,6 +21,7 @@ public class AddContactForm extends Form {
     public AddContactForm(String id) {
         super(id);
         
+        //initialize and add all the fields.
         firstNameField = new TextField("firstNameField", Model.of(""));
         lastNameField = new TextField("lastNameField", Model.of(""));
         addressField = new TextField("addressField", Model.of(""));
@@ -36,12 +37,14 @@ public class AddContactForm extends Form {
     
     @Override
     public final void onSubmit() {
+        //get all the field values.
         String firstName = firstNameField.getDefaultModelObjectAsString();
         String lastName = lastNameField.getDefaultModelObjectAsString();
         String address = addressField.getDefaultModelObjectAsString();
         String email = emailField.getDefaultModelObjectAsString();
         String phone = phoneField.getDefaultModelObjectAsString();
         
+        //create the contact, check for nonempty fields and set them.
         Contact newContact = new Contact(firstName, lastName);
         if (!address.equals("")) {
             newContact.setAddress(address);
@@ -53,10 +56,12 @@ public class AddContactForm extends Form {
             newContact.setPhone(phone);
         }
         
+        //generate the user's database list key.
         String keyStr = WicketApplication.KEYPREFIX + Session.get().getAttribute("username");
         byte[] key = keyStr.getBytes(Charset.forName("UTF-8"));
         
         try {
+            //serialize the Contact and push the serialized Contact to the database.
             byte[] serializedContact = SerializationHelper.serialize(newContact);
             try (Jedis jedis = WicketApplication.jedisPool.getResource()) {
                 jedis.lpush(key, serializedContact);
@@ -65,12 +70,14 @@ public class AddContactForm extends Form {
             Logger.getLogger(AddContactForm.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        //reset the form
         firstNameField.setDefaultModel(Model.of(""));
         lastNameField.setDefaultModel(Model.of(""));
         addressField.setDefaultModel(Model.of(""));
         emailField.setDefaultModel(Model.of(""));
         phoneField.setDefaultModel(Model.of(""));
         
+        //rebuild the Contact list.
         ListPage page = (ListPage) getPage();
         page.rebuildContactList();
     }

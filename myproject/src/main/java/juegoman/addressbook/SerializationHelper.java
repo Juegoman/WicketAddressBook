@@ -8,6 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 
+//Uses java serialization methods to serialize or deserialize a serializable Object.
 public class SerializationHelper {
     public static byte[] serialize(Object o) throws IOException {
         try (ByteArrayOutputStream bos = new ByteArrayOutputStream();

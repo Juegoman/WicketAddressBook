@@ -12,6 +12,7 @@ public class LoginForm extends Form {
     public LoginForm(String id) {
         super(id);
         
+        //initialize and add the text field.        
         usernameField = new TextField("nameInput", Model.of(""));
         
         add(usernameField);
@@ -19,6 +20,7 @@ public class LoginForm extends Form {
     
     @Override
     public final void onSubmit() {
+        //set the current user in the session.
         String username = (String)usernameField.getDefaultModelObject();
         
         Session.get().setAttribute("username", username);

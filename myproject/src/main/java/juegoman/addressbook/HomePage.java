@@ -11,6 +11,7 @@ public class HomePage extends WebPage {
     public HomePage(final PageParameters parameters) {
         super(parameters);
         
+        //initialize and add the login form.        
         loginForm = new LoginForm("loginForm");
         
         add(loginForm);
@@ -18,6 +19,7 @@ public class HomePage extends WebPage {
     
     @Override
     protected void onBeforeRender() {
+        //if the session has a user redirect to the Contact list page.
         if(Session.get().getAttribute("username") != null) {
             setResponsePage(ListPage.class);
         }

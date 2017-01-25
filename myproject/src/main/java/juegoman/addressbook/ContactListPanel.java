@@ -17,13 +17,18 @@ public class ContactListPanel extends Panel {
     public ContactListPanel(String id) {
         super(id);
         
+        //prepare variables.
         List<byte[]> contactByteList = null;
         contacts = new ArrayList<>();
         
+        //get the user's contacts
         try(Jedis jedis = WicketApplication.jedisPool.getResource()) {
+            //generate the user's key and get the user's serialized Contact list
             String keyStr = WicketApplication.KEYPREFIX + Session.get().getAttribute("username");
             contactByteList = jedis.lrange(keyStr.getBytes(Charset.forName("UTF-8")), 0, -1);
         }
+        
+        //for each serialized contact, deserialize it and push it to a prepared Contact list.
         contactByteList.forEach(contactBytes -> {
             Contact contact = new Contact();
             try {
@@ -33,6 +38,8 @@ public class ContactListPanel extends Panel {
             }
             contacts.add(contact);
         });
+        
+        //initialize and add the Contact list component.
         contactList = new ContactList("contactList", contacts);
 
         addOrReplace(contactList);
